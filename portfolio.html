@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joshua Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111;
+      color: #e8e8e8;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    .site-header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 52px 24px 40px;
+    }
+
+    .profile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      gap: 16px;
+    }
+
+    .profile-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #333;
+      flex-shrink: 0;
+    }
+
+    .profile-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .profile-subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #2e2e2e;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #aaa;
+      font-size: 1rem;
+      transition: border-color .15s, color .15s;
+    }
+    .social-icons a:hover { border-color: #555; color: #fff; }
+
+    .bio {
+      font-size: 0.975rem;
+      color: #aaa;
+      line-height: 1.75;
+      max-width: 720px;
+      margin-bottom: 12px;
+    }
+
+    .bio a { color: #e8e8e8; text-decoration: underline; text-underline-offset: 3px; }
+    .bio a:hover { color: #fff; }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+      margin-top: 48px;
+    }
+
+    .cat-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 16px;
+      margin-top: 40px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #222;
+    }
+
+    /* ── PROJECT GRID ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .proj-card {
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background .15s;
+      border: 1px solid #222;
+    }
+    .proj-card:hover { background: #1f1f1f; }
+
+    .proj-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #444;
+    }
+
+    .proj-body {
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .proj-title {
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: #7eb8d4;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .proj-desc {
+      font-size: 0.84rem;
+      color: #888;
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #e8e8e8;
+      background: #252525;
+      border: 1px solid #333;
+      padding: 7px 14px;
+      border-radius: 6px;
+      width: fit-content;
+      transition: background .15s, border-color .15s;
+    }
+    .read-more:hover { background: #2e2e2e; border-color: #555; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1px; }
+    .pub-item {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .pub-badge {
+      background: #1e3040;
+      color: #7eb8d4;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+    .pub-title { font-size: 0.9rem; font-weight: 500; color: #e0e0e0; line-height: 1.5; margin-bottom: 4px; }
+    .pub-authors { font-size: 0.8rem; color: #666; }
+    .pub-authors strong { color: #aaa; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1px; }
+    .exp-item {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      padding: 18px 20px;
+    }
+    .exp-header {
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      gap: 6px; margin-bottom: 10px;
+    }
+    .exp-role { font-size: 0.95rem; font-weight: 600; color: #e8e8e8; }
+    .exp-sep { color: #444; }
+    .exp-company { font-size: 0.875rem; font-weight: 500; color: #7eb8d4; }
+    .exp-loc { font-size: 0.78rem; color: #666; }
+    .exp-date { font-size: 0.78rem; color: #555; margin-left: auto; }
+    .exp-bullets { padding-left: 16px; }
+    .exp-bullets li { font-size: 0.84rem; color: #777; line-height: 1.65; margin-bottom: 4px; }
+    .exp-bullets li strong { color: #b0b0b0; font-weight: 500; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 700px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(16px);
+      transition: transform .25s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      flex-shrink: 0;
+    }
+
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid #333;
+      color: #aaa;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: color .15s;
+    }
+    .modal-close:hover { color: #fff; }
+
+    .modal-header { padding: 20px 24px 0; flex-shrink: 0; position: relative; }
+    .modal-cat { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 5px; }
+    .modal-title { font-size: 1.3rem; font-weight: 700; color: #fff; line-height: 1.25; }
+
+    .tab-bar { display: flex; border-bottom: 1px solid #222; padding: 0 24px; margin-top: 16px; flex-shrink: 0; }
+    .tab-btn {
+      font-size: 0.84rem; font-weight: 500; color: #555; background: none; border: none;
+      padding: 9px 14px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color .15s, border-color .15s;
+    }
+    .tab-btn.active { color: #fff; border-bottom-color: #7eb8d4; }
+    .tab-btn:hover:not(.active) { color: #aaa; }
+
+    .modal-body { overflow-y: auto; padding: 22px 24px 24px; flex: 1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .tab-panel p { font-size: 0.9rem; color: #888; line-height: 1.78; margin-bottom: 14px; }
+
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .gallery-item {
+      border-radius: 8px; overflow: hidden; aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; background: #222; color: #444;
+    }
+
+    .links-list { display: flex; flex-direction: column; gap: 8px; }
+    .link-item {
+      display: flex; align-items: center; gap: 12px;
+      background: #1e1e1e; border: 1px solid #2a2a2a;
+      border-radius: 8px; padding: 13px 15px;
+      text-decoration: none; color: #e8e8e8;
+      transition: border-color .15s, background .15s;
+    }
+    .link-item:hover { border-color: #444; background: #222; }
+    .link-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .link-label { font-size: 0.9rem; font-weight: 500; color: #7eb8d4; }
+    .link-desc { font-size: 0.78rem; color: #555; }
+    .link-arrow { margin-left: auto; color: #444; font-size: 0.9rem; }
+    .no-links { font-size: .88rem; color: #555; font-style: italic; padding: 8px 0; }
+
+    footer { border-top: 1px solid #1e1e1e; text-align: center; padding: 28px; font-size: 0.78rem; color: #444; }
+
+    @media (max-width: 640px) {
+      .proj-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .social-icons a { width: 32px; height: 32px; }
+      .exp-date { margin-left: 0; }
+    }
+    @media (min-width: 641px) and (max-width: 860px) {
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="profile-row">
+    <div class="profile-left">
+      <img src="https://via.placeholder.com/52" alt="Joshua Dai" class="avatar">
+      <div>
+        <div class="profile-name">Joshua Dai</div>
+        <div class="profile-subtitle">Biomedical Engineer · UMass Amherst</div>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a href="mailto:jvbdai@gmail.com" title="Email">✉</a>
+      <a href="https://linkedin.com/in/joshua-b-dai" target="_blank" title="LinkedIn">in</a>
+      <a href="https://github.com" target="_blank" title="GitHub">⌥</a>
+    </div>
+  </div>
+
+  <p class="bio">
+    I'm a Biomedical Engineering student (B.S. + M.S. ECE) at UMass Amherst, Commonwealth Honors College. GPA 3.965, Dean's List every semester.
+    I build at the intersection of hardware and biology — wearable ML devices, mechanofluidic bioreactors, embedded systems, and antibody-drug conjugate manufacturing at Takeda.
+  </p>
+  <p class="bio">
+    Want to chat? Email me at <a href="mailto:jvbdai@gmail.com">jvbdai@gmail.com</a>. Connect on <a href="https://linkedin.com/in/joshua-b-dai" target="_blank">LinkedIn</a>.
+  </p>
+</header>
+
+<main>
+
+  <!-- PROJECTS -->
+  <h2 class="section-title">Projects</h2>
+
+  <div class="cat-title">Biomedical &amp; Medical Devices</div>
+  <div class="proj-grid">
+
+    <div class="proj-card" onclick="openModal('safestep')">
+      <div class="proj-img">🦺</div>
+      <div class="proj-body">
+        <div class="proj-title">SafeStep — Wearable Fall Detection &amp; Airbag</div>
+        <div class="proj-desc">ARM Cortex-M4 wearable fusing 6-axis IMU + ECG to deploy an 800 PSI airbag in under 200 ms. Built with Baystate Medical Center.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('coanda')">
+      <div class="proj-img">🌬️</div>
+      <div class="proj-body">
+        <div class="proj-title">Coandă Effect Air Amplifier</div>
+        <div class="proj-desc">External IMS attachment amplifying inlet airflow 10–15× from 10–20 cm standoff without disrupting internal drift tube physics.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cat-title">CAD &amp; Engineering Design</div>
+  <div class="proj-grid">
+
+    <div class="proj-card" onclick="openModal('thesis')">
+      <div class="proj-img">🔬</div>
+      <div class="proj-body">
+        <div class="proj-title">CNS Fluidic Shear Stress Bioreactor</div>
+        <div class="proj-desc">12-well cone-and-plate mechanofluidic system to study astrocyte differentiation under low shear stress. COMSOL CFD validated.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('robotics')">
+      <div class="proj-img">🦾</div>
+      <div class="proj-body">
+        <div class="proj-title">6-DOF Rehabilitative Robotic Arm</div>
+        <div class="proj-desc">Cable-driven 6-DOF arm for upper-limb rehabilitation. Led 10+ students. Modeled in Onshape, validated with MSC Adams.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cat-title">CS, AI &amp; Embedded Systems</div>
+  <div class="proj-grid">
+
+    <div class="proj-card" onclick="openModal('wearable')">
+      <div class="proj-img">💓</div>
+      <div class="proj-body">
+        <div class="proj-title">Wearable Health Monitoring System</div>
+        <div class="proj-desc">Multi-sensor fusion (IMU, GPS, audio) with TensorFlow + DSP pipelines. Sleep stage and pedometer accuracy to 73%.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('pacman')">
+      <div class="proj-img">👾</div>
+      <div class="proj-body">
+        <div class="proj-title">Pacman AI Solver</div>
+        <div class="proj-desc">A*, Minimax, Expectimax, Q-Learning, MDPs, HMMs, and Particle Filters — all in one adversarial Pacman agent suite.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('smartcar')">
+      <div class="proj-img">🚗</div>
+      <div class="proj-body">
+        <div class="proj-title">ATmega328P Autonomous RC SmartCar</div>
+        <div class="proj-desc">RC car built from scratch — ultrasonic obstacle avoidance, bidirectional motor control, hand-soldered PCB.</div>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EXPERIENCE -->
+  <h2 class="section-title" style="margin-top:64px;">Experience</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">R&amp;D Process Engineer</span>
+        <span class="exp-sep">·</span>
+        <span class="exp-company">Takeda Pharmaceuticals</span>
+        <span class="exp-sep">·</span>
+        <span class="exp-loc">Lexington, MA</span>
+        <span class="exp-date">June 2025 – Aug 2025</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>ADC purification protocols eliminating 3 unit operations → <strong>96% reduction in drug consumption</strong></li>
+        <li>TECAN robotics: 100+ automated conditions → <strong>60% throughput gain, 80% cost reduction</strong></li>
+        <li>Quantified ADC via UPLC H-Class PLUS / Q Exactive HF-X mass spectrometry</li>
+        <li>Co-authored 2 peer-reviewed publications on ThiomAb stability and on-column ADC conjugation</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Co-op R&amp;D Engineer</span>
+        <span class="exp-sep">·</span>
+        <span class="exp-company">Ocular Therapeutix</span>
+        <span class="exp-sep">·</span>
+        <span class="exp-loc">Bedford, MA</span>
+        <span class="exp-date">Jan 2024 – June 2024</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Optimized hydrogel fornix insert manufacturing → <strong>30% less active drug waste</strong></li>
+        <li>SolidWorks Instron test fixtures → <strong>70% workflow improvement</strong></li>
+        <li>Python automation (Pandas, NumPy) 5× faster data processing; characterized via UPLC, SEM, UV-Vis</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Hardware Test Engineer</span>
+        <span class="exp-sep">·</span>
+        <span class="exp-company">CreativeStar</span>
+        <span class="exp-sep">·</span>
+        <span class="exp-loc">Waltham, MA</span>
+        <span class="exp-date">2020 – 2022</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Engineered face recognition + thermal screening software for COVID-19 diagnostic machines</li>
+        <li>Comprehensive SW/HW testing and QA documentation for regulatory compliance</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <h2 class="section-title" style="margin-top:64px;">Publications</h2>
+  <div class="pub-list">
+    <div class="pub-item">
+      <span class="pub-badge">In Review</span>
+      <div>
+        <div class="pub-title">On-column Thiol Protection Strategy to Improve Charge and Stability Profile of ThiomAb</div>
+        <div class="pub-authors">Kaiyuan, N., Wang, L., <strong>Dai, J.</strong>, Parks, G. — <em>Antibody Therapeutics</em>, expected 2026</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-badge">In Prep</span>
+      <div>
+        <div class="pub-title">Feasibility Study of On-Column Conjugation for Antibody-Drug Conjugate Manufacturing</div>
+        <div class="pub-authors"><strong>Dai, J.</strong>, Kaiyuan, N., Wang, L., et al. — Manuscript, 2026</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>© 2026 Joshua Dai</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeOnBg(event)">
+  <div class="modal">
+    <div class="modal-img" id="modal-img">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <span id="modal-icon"></span>
+    </div>
+    <div class="modal-header">
+      <div class="modal-cat" id="modal-cat"></div>
+      <div class="modal-title" id="modal-title"></div>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+      <button class="tab-btn" onclick="switchTab('gallery')">Gallery</button>
+      <button class="tab-btn" onclick="switchTab('links')">Links</button>
+    </div>
+    <div class="modal-body">
+      <div class="tab-panel active" id="tab-overview"></div>
+      <div class="tab-panel" id="tab-gallery"></div>
+      <div class="tab-panel" id="tab-links"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = {
+  safestep:{
+    icon:'🦺', cat:'Capstone · Baystate Medical Center',
+    title:'SafeStep — Wearable Fall Detection & Airbag',
+    overview:`<p>SafeStep is a wearable medical device built with Baystate Medical Center to prevent fall injuries. When the onboard classifier detects an imminent fall, it fires a CO₂ airbag in under 200 ms — before impact.</p><p>Hardware: Adafruit Feather M4 (ARM Cortex-M4) + 6-axis IMU (MPU-6050) + clinical ECG front-end (MAX30003). A custom MOSFET driver triggers an 800 PSI CO₂ solenoid. A Buck Converter power stage drives the 3.7V solenoid from 3.3V logic.</p><p>ML: Random forest via Edge Impulse on accelerometer + gyroscope + ECG at 100 Hz. On-device EMA filter and free-fall physics override (&lt;3.0 m/s²) cut false negatives in real time.</p>`,
+    gallery:['🦺','📡','🔋','⚡'],
+    links:[{icon:'🏥',label:'Baystate Medical Center',desc:'Clinical partner',url:'https://www.baystatehealth.org'}]
+  },
+  coanda:{
+    icon:'🌬️', cat:'Research · IMS Instrumentation',
+    title:'Coandă Effect Air Amplifier',
+    overview:`<p>IMS sensors require direct inlet sampling but vapor drops sharply with distance — passive inlets give poor sensitivity at 10–20 cm standoff. This clip-on amplifier solves that without touching internal instrument physics.</p><p>Four subsystems: (1) Coandă nozzle, (2) 450 mL/min diaphragm micro-pump, (3) atmospheric plenum buffer decoupling front-end flow, and (4) 45°C resistive heater tape preventing analyte condensation.</p><p>Total intake reaches ~4.5 L/min (10–15× amplification). The plenum clamps the interface at 1 atm, fully preserving the native 800 mL/min drift flow and ion source stability.</p>`,
+    gallery:['🌬️','📐','🔧','🧪'],
+    links:[]
+  },
+  thesis:{
+    icon:'🔬', cat:'CHC Honors Thesis',
+    title:'CNS Fluidic Shear Stress Bioreactor',
+    overview:`<p>This honors thesis designs a mechanofluidic platform to study how low-magnitude shear stress drives astrocyte differentiation — a largely unexplored question in CNS mechanobiology.</p><p>The device is a 12-well cone-and-plate bioreactor modeled in Onshape. COMSOL Multiphysics CFD identifies non-uniform flow regions that physical sensors can't reach. Results are cross-validated against wet-lab assays to build a complete stress-profile map across all 12 wells simultaneously.</p>`,
+    gallery:['🔬','📐','💧','🧬'],
+    links:[]
+  },
+  robotics:{
+    icon:'🦾', cat:'UMass Robotics Club',
+    title:'6-DOF Rehabilitative Robotic Arm',
+    overview:`<p>Led 10+ students on the UMass Robotics humanoid project, designing a cable-driven 6-DOF open-chain arm for upper-limb rehabilitation.</p><p>Full assembly in Onshape, optimized for structural robustness and range of motion. Cable-driven actuation locates motors proximally, reducing distal mass for patient-safe compliance. MSC Adams motion analysis verified the arm can execute daily-living tasks — forming the rehabilitation protocol design basis.</p>`,
+    gallery:['🦾','⚙️','🔩','🦿'],
+    links:[{icon:'🤖',label:'UMass Robotics',desc:'Club page',url:'https://umassamherst.presence.io/organization/umass-robotics'}]
+  },
+  wearable:{
+    icon:'💓', cat:'Independent · Wearable ML',
+    title:'Wearable Health Monitoring System',
+    overview:`<p>Multi-modal sensor fusion combining IMU, GPS, audio, gyroscope, accelerometer, and barometer for real-time health tracking and activity recognition on wearable hardware.</p><p>Python + scikit-learn sensor fusion processes raw signals. TensorFlow deep learning + DSP pipelines (smoothing, denoising, K-fold CV) boosted sleep stage and pedometer accuracy to 73%. Sensor polling rates were tuned to maximize battery life under continuous operation.</p>`,
+    gallery:['💓','😴','📈','🏃'],
+    links:[]
+  },
+  pacman:{
+    icon:'👾', cat:'AI · Coursework',
+    title:'Pacman AI Solver',
+    overview:`<p>Autonomous agents built across the full breadth of classical AI, validated in a Pacman simulation environment.</p><p>Search: DFS, BFS, A* with custom heuristics. Adversarial: Minimax and Expectimax for ghost agents. RL: Q-Learning learning optimal policies through trial and error. Probabilistic: MDPs, HMMs, Particle Filters for tracking invisible ghosts, and Bayesian Networks for uncertainty reasoning in partially observable environments.</p>`,
+    gallery:['👾','🔍','🎯','🧠'],
+    links:[]
+  },
+  smartcar:{
+    icon:'🚗', cat:'Embedded Systems',
+    title:'ATmega328P Autonomous RC SmartCar',
+    overview:`<p>A ground-up embedded project: autonomous RC car on an ATmega328P, designed, assembled, soldered, and calibrated by hand.</p><p>Ultrasonic sensors provide real-time obstacle detection. Custom algorithms handle bidirectional motor control and autonomous re-routing. Iterated from breadboard prototype to final hand-soldered PCB.</p>`,
+    gallery:['🚗','🔧','📡','⚡'],
+    links:[]
+  },
+};
+
+function openModal(id) {
+  const p = projects[id];
+  document.getElementById('modal-icon').textContent = p.icon;
+  document.getElementById('modal-cat').textContent = p.cat;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('tab-overview').innerHTML = p.overview;
+  document.getElementById('tab-gallery').innerHTML =
+    `<p style="margin-bottom:12px;">Replace these placeholders with your own project images.</p>
+     <div class="gallery-grid">${p.gallery.map(ic=>`<div class="gallery-item">${ic}</div>`).join('')}</div>`;
+  document.getElementById('tab-links').innerHTML = p.links.length
+    ? `<div class="links-list">${p.links.map(l=>`
+        <a class="link-item" href="${l.url}" target="_blank">
+          <span class="link-icon">${l.icon}</span>
+          <span><div class="link-label">${l.label}</div><div class="link-desc">${l.desc}</div></span>
+          <span class="link-arrow">↗</span>
+        </a>`).join('')}</div>`
+    : `<p class="no-links">No links yet — add GitHub, demo, or paper URLs in the project data.</p>`;
+  switchTab('overview');
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnBg(e) { if(e.target===document.getElementById('modal-overlay')) closeModal(); }
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  [...document.querySelectorAll('.tab-btn')].find(b=>b.textContent.toLowerCase()===id)?.classList.add('active');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
