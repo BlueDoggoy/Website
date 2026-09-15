@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mechanofluidic CNS hemodynamic modeling system case study by Joshua Dai.">
+  <title>CNS Hemodynamic Modeling | Joshua Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell simple-project">
+    <nav class="article-nav"><a class="back-link" href="../index.html">← Back to selected work</a></nav>
+    <video class="project-lead" controls muted playsinline preload="metadata" aria-label="CNS mechanofluidic system operating during prototype testing">
+      <source src="../CNS/20260422_135923.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+    <p class="caption">The 12-position drive operating during prototype testing.</p>
+    <header class="project-heading">
+      <p class="eyebrow">Mechanofluidics · October 2025 – May 2026</p>
+      <h1>CNS hemodynamic modeling system</h1>
+      <p class="lede">A redesigned 12-well cone-and-plate platform for reproducing the subtle fluid forces found at the blood-brain barrier and within CNS interstitial spaces.</p>
+    </header>
+    <article class="article-body">
+      <h2>Why the system matters</h2>
+      <p>Static cell cultures omit the flow-generated cues that influence cell phenotype and morphology. This platform focuses on the especially slow, low-magnitude shear regimes found beyond the blood-brain barrier—conditions that are difficult to reproduce consistently in conventional in vitro models.</p>
+      <h2>Stabilizing long experiments</h2>
+      <p>The legacy system used a suspended motor that shifted under vibration during runs lasting more than 24 hours. That movement changed the cone gap, produced undefined shear, and could disengage the drive inside a closed incubator. A rigid portal-frame redesign removed lateral wobble and maintained engagement across the 12 positions.</p>
+      <div class="gallery">
+        <img src="../CNS/20260506_112500.jpg" alt="Front view of the complete mechanofluidic prototype">
+        <img class="contain" src="../CNS/cad-assembly.png" alt="CAD assembly of the motor mount, central drive, cone holder, and well plate">
+      </div>
+      <h2>Finding the limiting tolerance</h2>
+      <p>Extended testing traced metal contamination to friction at the cone holder’s retaining plate. It also showed that multiwell plate variation of ±150 μm could exceed the intended 100 μm cone gap. At 2.4 RPM, that dimensional error could shift shear stress by roughly ±0.05 Pa—large enough to compromise an ultra-low-shear experiment.</p>
+      <h2>Design direction</h2>
+      <p>The next iteration moves gap-critical parts from FDM-printed PLA toward machined components and introduces a precision reference spacer for repeatable holder elevation. After dimensional validation, the system can advance to CNS endothelial-cell trials and live fluorescence imaging during shear application.</p>
+      <section class="resource-box" aria-labelledby="thesis-resource">
+        <h2 id="thesis-resource">Research document</h2>
+        <div class="resource-links"><a class="button" href="../CNS/Thesis%20(3).pdf" target="_blank">Read the full thesis ↗</a></div>
+      </section>
+      <section class="skills-tested" aria-labelledby="cns-skills">
+        <h2 id="cns-skills">Skills tested</h2>
+        <div class="skill-list"><span class="skill-pill">Mechanofluidics</span><span class="skill-pill">Mechanical CAD</span><span class="skill-pill">Tolerance analysis</span><span class="skill-pill">Rapid prototyping</span><span class="skill-pill">Root-cause analysis</span><span class="skill-pill">Design of experiments</span><span class="skill-pill">Biomedical research</span></div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

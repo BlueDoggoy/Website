@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SafeStep wearable fall intervention system case study by Joshua Dai.">
+  <title>SafeStep | Joshua Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell simple-project">
+    <nav class="article-nav"><a class="back-link" href="../index.html">← Back to selected work</a></nav>
+    <img class="project-lead" src="../SafeStep/20260428_141134.jpg" alt="SafeStep electronics, solenoid valve, and inflation hardware arranged during integration">
+    <p class="caption">Integrated sensing, control, valve, and inflation hardware for the wearable prototype.</p>
+    <header class="project-heading">
+      <p class="eyebrow">Baystate Medical Center · Senior Design</p>
+      <h1>SafeStep wearable fall protection</h1>
+      <p class="lede">An untethered system that reads body motion, identifies a fall, and activates a CO₂-powered pelvic airbag from hardware integrated into a hospital gown.</p>
+    </header>
+    <article class="article-body">
+      <h2>The challenge</h2>
+      <p>SafeStep was developed in response to a Baystate Medical Center brief: intervene during a fall, not only after it happens. The system targets pelvic protection while remaining compact enough to operate as a wearable device.</p>
+      <h2>From motion data to embedded inference</h2>
+      <p>An MPU-6050 samples three-axis acceleration and angular velocity at 100 Hz. A half-second sliding window is converted into nine motion features and evaluated by a Random Forest model exported to an Adafruit Feather M4 Express. A physics-based free-fall check supplies a second detection path rather than relying on the classifier alone.</p>
+      <p>When a fall is detected, the controller drives an electromechanical solenoid through a separate power stage and releases CO₂ into an 8.1-liter protective cushion. Bench testing measured the cushion itself inflating in under 200 ms. End-to-end sensing, classification, and actuation latency remained a separate optimization target for the next prototype.</p>
+      <div class="gallery">
+        <img src="../SafeStep/img2.jpg" alt="SafeStep electronics, battery packs, and inflation valve during integration">
+        <img src="../SafeStep/components.jpg" alt="SafeStep control electronics connected to the solenoid inflation assembly">
+      </div>
+      <h2>What the prototype established</h2>
+      <p>The classifier reached 87% accuracy on the available evaluation dataset, and live sensor plots showed the model identifying fall windows. Material testing also guided a layered enclosure direction: rigid PLA for support, resilient TPU, and foam for impact attenuation.</p>
+      <p>The work turned a clinical concept into a complete sensing-to-actuation prototype while revealing the remaining engineering priorities: collect representative in-house data, reduce total response latency, and validate the full wearable during controlled fall testing.</p>
+      <img class="project-lead contain supporting-image" src="../SafeStep/senior-design-poster-preview.png" alt="SafeStep senior design poster summarizing architecture, testing, and results">
+      <section class="resource-box" aria-labelledby="resources">
+        <h2 id="resources">Project documents</h2>
+        <div class="resource-links"><a class="button" href="../SafeStep/Safestep.pdf" target="_blank">Read project brief ↗</a><a class="button" href="../SafeStep/Senior%20Design%20Poster%20(1).pdf" target="_blank">View design poster ↗</a></div>
+      </section>
+      <section class="skills-tested" aria-labelledby="safestep-skills">
+        <h2 id="safestep-skills">Skills tested</h2>
+        <div class="skill-list"><span class="skill-pill">Embedded systems</span><span class="skill-pill">CircuitPython</span><span class="skill-pill">IMU signal processing</span><span class="skill-pill">Random Forests</span><span class="skill-pill">Feature engineering</span><span class="skill-pill">Electromechanical actuation</span><span class="skill-pill">Prototype testing</span></div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

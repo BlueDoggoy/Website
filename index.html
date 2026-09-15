@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Joshua Dai — mechatronics, biomedical engineering, embedded systems, and robotics portfolio.">
+  <title>Joshua Dai | Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="home-header">
+    <div class="profile-row">
+      <div class="profile-left">
+        <img class="profile-bubble" src="profile-avatar.png" alt="Joshua Dai">
+        <div>
+          <!-- EDIT HERE: Change your name and the one-line subtitle below. -->
+          <div class="profile-name">Joshua Dai</div>
+          <div class="profile-subtitle">M.S. ECE Candidate · B.S. Biomedical Engineering</div>
+        </div>
+      </div>
+      <nav class="social-icons" aria-label="Contact links">
+        <a class="resume-link" href="Joshua_Dai_Resume%20(2).pdf" target="_blank" title="View résumé" aria-label="View Joshua Dai's résumé">Résumé</a>
+        <a href="mailto:jvbdai@gmail.com" title="Email" aria-label="Email Joshua">✉</a>
+        <a href="https://linkedin.com/in/joshua-b-dai" target="_blank" rel="noreferrer" title="LinkedIn" aria-label="Joshua Dai on LinkedIn">in</a>
+      </nav>
+    </div>
+
+    <!-- EDIT HERE: Replace the text between <p class="bio"> and </p> with your own introduction. -->
+    <p class="bio">I am an M.S. Electrical &amp; Computer Engineering student at UMass Amherst with a B.S. in Biomedical Engineering and a minor in Computer Science. I am especially interested in hardware systems and precision robotics. Current coursework includes Advanced Robotic Dynamics and Control, Hardware Design, and Systems Software, while my personal “gizmo” projects give me practical experience turning ideas into working systems.</p>
+    <!-- EDIT HERE: Change or remove this contact sentence. Keep the <a> tags if you want the links to remain clickable. -->
+    <p class="bio">Reach out at <a href="mailto:jvbdai@gmail.com">jvbdai@gmail.com</a> or connect on <a href="https://linkedin.com/in/joshua-b-dai" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+  </header>
+
+  <main class="home-main">
+    <section aria-labelledby="projects-title">
+      <h1 class="section-title" id="projects-title">Projects &amp; Systems</h1>
+
+      <div class="proj-grid">
+        <a href="projects/rac-automation.html" class="proj-card">
+          <img class="proj-img contain" src="GinkgoBioworks/e17tall.png" alt="CAD rendering of the E17 laboratory automation enclosure" loading="lazy">
+          <div class="proj-body">
+            <div class="proj-title">Laboratory Automation Integration</div>
+            <p class="proj-desc">Mechanical design, controlled documentation, hardware bring-up, robot teaching, and cross-disciplinary fault isolation for automated biology systems.</p>
+            <span class="read-more">Read Post →</span>
+          </div>
+        </a>
+
+        <a href="projects/safestep.html" class="proj-card">
+          <img class="proj-img" src="SafeStep/20260428_141134.jpg" alt="SafeStep electronics, solenoid valve, and inflation hardware arranged during integration" loading="lazy">
+          <div class="proj-body">
+            <div class="proj-title">SafeStep — Wearable Fall Detection &amp; Airbag</div>
+            <p class="proj-desc">Untethered ARM Cortex-M4 wearable using an on-device Random Forest classifier and hardware free-fall override to inflate an 8.1 L protective cushion in under 200 ms.</p>
+            <span class="read-more">Read Post →</span>
+          </div>
+        </a>
+
+        <a href="projects/robotic-arm.html" class="proj-card">
+          <img class="proj-img contain" src="Robot/Screenshot%202026-09-15%20145021.png" alt="CAD assembly of a cable-driven rehabilitative robotic arm" loading="lazy">
+          <div class="proj-body">
+            <div class="proj-title">6-DOF Rehabilitative Robotic Arm</div>
+            <p class="proj-desc">Cable-driven 6-DOF arm for upper-limb rehabilitation. Led 10+ students in Onshape modeling and MSC Adams dynamic validation.</p>
+            <span class="read-more">Read Post →</span>
+          </div>
+        </a>
+
+        <a href="projects/ouro-bot.html" class="proj-card">
+          <div class="proj-media">
+            <img class="proj-img contain" src="Ouro%20Robot/Screenshot%202026-09-15%20150307.png" alt="Work-in-progress CAD concept for the Ouro Bot autonomous household robot" loading="lazy">
+            <span class="wip-badge">Work in progress</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Ouro Bot — Autonomous Trash-Detection Robot</div>
+            <p class="proj-desc">Tracked household robot in development with a tilting sensor head, 2D LiDAR, Pi Camera, SLAM-based mapping, and real-time clutter detection.</p>
+            <span class="read-more">View WIP →</span>
+          </div>
+        </a>
+
+        <a href="projects/cns-bioreactor.html" class="proj-card">
+          <img class="proj-img" src="CNS/20260506_112500.jpg" alt="Physical prototype of the twelve-well CNS mechanofluidic system" loading="lazy">
+          <div class="proj-body">
+            <div class="proj-title">CNS Hemodynamic Modeling System</div>
+            <p class="proj-desc">Redesigned a 12-well cone-and-plate system for ultra-low CNS shear, resolving drive instability and identifying sub-100 μm gap control as the critical design constraint.</p>
+            <span class="read-more">Read Post →</span>
+          </div>
+        </a>
+      </div>
+
+    </section>
+
+    <section aria-labelledby="experience-title">
+      <h2 class="section-title" id="experience-title">Experience</h2>
+      <div class="exp-list">
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Mechatronics Engineer</span><span class="exp-sep">·</span>
+            <span class="exp-company">Ginkgo Bioworks</span><span class="exp-sep">·</span>
+            <span class="exp-loc">Boston, MA</span><time class="exp-date">May 2026 – Present</time>
+          </div>
+          <!-- EDIT HERE: Each <li>...</li> is one experience sentence. Remove <strong>...</strong> to unbold a result. -->
+          <ul class="exp-bullets">
+           <li>My role as a mechatronics engineer involves owning and producing CAD models and drawings for Ginkgo’s Reconfigurable Automation Carts (RAC). I led the creation of an E17 enclosure that enabled the deployment of new laboratory instruments that previously could not fit within a RAC system. I was responsible for redesigning the enclosure to house this oversized equipment while simultaneously bringing design control in-house by converting vendor prints into 13 released, SolidWorks PLM-compliant internal drawings. Alongside CAD and hardware ownership, I use Aligni to manage multilevel bills of materials, item lifecycles, and component inventories. By providing real-time inventory visibility, I help create a smoother path from SolidWorks design releases to assembled hardware kits. On the automation front, I assembled buffer nests and other RAC hardware components to bring iKits fully online, from physical installation through Python driver integration. To ensure reliable runs, I calibrated 6-DOF robotic trajectories for precise movement, preventing dropped labware and collisions. Additionally, I debugged hardware faults and characterized inrush current to establish standardized Factory Acceptance Testing (FAT) power criteria.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">R&amp;D Process Engineer</span><span class="exp-sep">·</span>
+            <span class="exp-company">Takeda Pharmaceuticals</span><span class="exp-sep">·</span>
+            <span class="exp-loc">Lexington, MA</span><time class="exp-date">June 2025 – Aug 2025</time>
+          </div>
+          <!-- EDIT HERE: Write each sentence inside an <li>...</li>. The <strong> tag creates bold emphasis. -->
+          <ul class="exp-bullets">
+           <li>I engineered novel on-column antibody-drug conjugate (ADC) purification protocols that eliminated three unit operations, driving a 96% reduction in drug consumption. To accelerate process development, I programmed TECAN automated liquid handlers to screen more than 100 conditions, yielding a 60% throughput gain and an 80% cost reduction. I characterized conjugate variants and stability using a Waters UPLC H-Class PLUS and a Q Exactive HF-X mass spectrometer, and I coauthored peer-reviewed research detailing ThiomAb stability and on-column conjugation mechanisms.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">R&amp;D Engineer</span><span class="exp-sep">·</span>
+            <span class="exp-company">Ocular Therapeutix</span><span class="exp-sep">·</span>
+            <span class="exp-loc">Bedford, MA</span><time class="exp-date">Jan 2024 – June 2024</time>
+          </div>
+          <!-- EDIT HERE: Write each sentence inside an <li>...</li>. Delete only the <strong> tags to remove bolding. -->
+          <ul class="exp-bullets">
+          <li>I optimized the formulation and manufacturing process for glaucoma hydrogel ocular inserts, reducing active drug substance waste by 30%. For mechanical testing, I modeled and fabricated custom SolidWorks fixtures for Instron systems, accelerating the characterization workflow by 70%. I also built automated Python data pipelines using Pandas and NumPy, achieving a fivefold speedup in the processing and analysis of UPLC, SEM, and UV-Vis datasets.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="publications-title">
+      <h2 class="section-title" id="publications-title">Publications</h2>
+      <div class="pub-item">
+        <span class="pub-badge">Published</span>
+        <div>
+          <div class="pub-title">On-Column Thiol Protection Strategy to Control Charge and Stability of ThiomAb</div>
+          <div class="pub-authors">Ni, K., Wang, L., Shupe, A., Cooney, T., <strong>Dai, J.</strong>, et al. — <em>Antibody Therapeutics</em>, 2026</div>
+          <!-- EDIT HERE: Replace this paragraph with two or three sentences about your contribution and the publication's significance. -->
+          <p class="pub-summary">Developed during my R&amp;D Process Engineering internship at Takeda Pharmaceuticals, this study reflects research I helped drive into on-column ThiomAb conjugation and stabilization mechanisms. By engineering automated screening protocols for liquid handlers and performing UPLC and mass spectrometry characterization, I helped demonstrate that eliminating intermediate purification steps can dramatically reduce drug substance consumption. This work became my first coauthored publication, and a related study of the conjugation process is underway.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="compact-footer">© 2026 Joshua Dai</footer>
+</body>
+</html>
